@@ -1,0 +1,5 @@
+# Generated from lib/nuhttp/version.rb with RBS::Inline
+
+module NuHttp
+  VERSION: ::String
+end

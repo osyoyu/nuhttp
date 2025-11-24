@@ -1,0 +1,13 @@
+# Generated from lib/nuhttp/app.rb with RBS::Inline
+
+module NuHttp
+  class App
+    def initialize: (untyped router) -> untyped
+
+    # The entrypoint of the request.
+    # @rbs (NuHttp::Context) -> void
+    def dispatch: (NuHttp::Context) -> void
+
+    def routes: () -> untyped
+  end
+end

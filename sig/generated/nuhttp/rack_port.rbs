@@ -1,0 +1,9 @@
+# Generated from lib/nuhttp/rack_port.rb with RBS::Inline
+
+module NuHttp
+  class RackPort
+    def initialize: (untyped app) -> untyped
+
+    def call: (untyped env) -> untyped
+  end
+end

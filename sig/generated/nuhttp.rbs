@@ -1,0 +1,9 @@
+# Generated from lib/nuhttp.rb with RBS::Inline
+
+module NuHttp
+  class Error < StandardError
+  end
+
+  # @rbs &block: (Builder) -> void
+  def self.app: () { (Builder) -> void } -> untyped
+end

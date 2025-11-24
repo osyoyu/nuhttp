@@ -1,0 +1,32 @@
+# Generated from lib/nuhttp/router.rb with RBS::Inline
+
+module NuHttp
+  class Router
+    class Route < Data
+      attr_reader method(): untyped
+
+      attr_reader pattern(): untyped
+
+      attr_reader handler(): untyped
+
+      def self.new: (untyped method, untyped pattern, untyped handler) -> instance
+                  | (method: untyped, pattern: untyped, handler: untyped) -> instance
+
+      def self.members: () -> [ :method, :pattern, :handler ]
+
+      def members: () -> [ :method, :pattern, :handler ]
+    end
+
+    NOT_FOUND_ROUTE: untyped
+
+    def initialize: () -> untyped
+
+    def routes: () -> untyped
+
+    # @rbs (Symbol, String) -> void
+    def register_route: (Symbol, String) -> void
+
+    # @rbs (NuHttp::Request) -> [Route, Hash]
+    def resolve: (NuHttp::Request) -> [ Route, Hash ]
+  end
+end

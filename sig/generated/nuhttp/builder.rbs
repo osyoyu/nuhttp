@@ -1,0 +1,18 @@
+# Generated from lib/nuhttp/builder.rb with RBS::Inline
+
+module NuHttp
+  class Builder
+    def initialize: () -> untyped
+
+    def build: () -> untyped
+
+    # @rbs &block: (Context) -> void
+    def get: (untyped path) { (Context) -> void } -> untyped
+
+    # @rbs &block: (Context) -> void
+    def post: (untyped path) { (Context) -> void } -> untyped
+
+    # : (String, NuHttp::App) -> void
+    def mount: (String, NuHttp::App) -> void
+  end
+end

@@ -1,0 +1,59 @@
+# Generated from lib/nuhttp/context.rb with RBS::Inline
+
+module NuHttp
+  class Context
+    def initialize: (req: untyped, route: untyped) -> untyped
+
+    def req: () -> NuHttp::Request
+
+    def res: () -> NuHttp::Response
+
+    # TODO: take IO and allow streaming
+    def body: (untyped str) -> untyped
+
+    # Set response to HTML `str`.
+    # Content-Type header will be set to `text/html; charset=utf-8`.
+    # : (String) -> void
+    def html: (String) -> void
+
+    # Render a template using the provided renderer and set as HTML response.
+    # : (String, ?Hash[Symbol, untyped]) -> void
+    def erb: (String, ?Hash[Symbol, untyped]) -> void
+
+    # Set response to plain text `str`.
+    # Content-Type header will be set to `text/plain; charset=utf-8`.
+    # : (String) -> void
+    def text: (String) -> void
+
+    # Set response to the JSON representation of `obj`.
+    # Content-Type header will be set to `application/json`.
+    # : (Object) -> void
+    def json: (Object) -> void
+  end
+
+  class Request
+    attr_reader method: untyped
+
+    attr_reader path: untyped
+
+    attr_reader query: untyped
+
+    attr_reader headers: untyped
+
+    attr_reader body: untyped
+
+    attr_accessor params: untyped
+
+    def initialize: (method: untyped, path: untyped, query: untyped, body: untyped) -> untyped
+  end
+
+  class Response
+    attr_accessor status: untyped
+
+    attr_accessor headers: untyped
+
+    attr_accessor body: untyped
+
+    def initialize: () -> untyped
+  end
+end

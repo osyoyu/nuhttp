@@ -1,0 +1,11 @@
+# Generated from lib/nuhttp/herb_renderer.rb with RBS::Inline
+
+module NuHttp
+  class HerbRenderer
+    def render: (untyped template_path, ?untyped locals) -> untyped
+  end
+
+  class EmptyBinding
+    def self.get_binding: () -> Binding
+  end
+end
