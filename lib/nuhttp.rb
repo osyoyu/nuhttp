@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rbs_inline: enabled
 
 require_relative 'nuhttp/app'
 require_relative 'nuhttp/builder'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rbs_inline: enabled
 
 module NuHttp
   class Builder
@@ -20,7 +21,7 @@ module NuHttp
       @router.register_route(:post, path, &block)
     end
 
-    # @rbs &block: (App) -> void
+    #: (String, NuHttp::App) -> void
     def mount(path, subapp)
       subapp.routes.each do |route|
         @router.register_route(
