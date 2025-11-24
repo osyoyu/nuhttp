@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
+  spec.add_development_dependency "minitest"
   spec.add_development_dependency "rbs-inline"
 
   # For more information and examples about making a new gem, check out our

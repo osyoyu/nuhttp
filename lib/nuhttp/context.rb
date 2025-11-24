@@ -18,6 +18,30 @@ module NuHttp
       @res
     end
 
+    # TODO: take IO and allow streaming
+    def body(str)
+      res.body = str
+    end
+
+    # Set response to HTML `str`.
+    # Content-Type header will be set to `text/html; charset=utf-8`.
+    #: (String) -> void
+    def html(str)
+      res.headers['Content-Type'] = 'text/html; charset=utf-8'
+      res.body = str
+    end
+
+    # Set response to plain text `str`.
+    # Content-Type header will be set to `text/plain; charset=utf-8`.
+    #: (String) -> void
+    def text(str)
+      res.headers['Content-Type'] = 'text/plain; charset=utf-8'
+      res.body = str
+    end
+
+    # Set response to the JSON representation of `obj`.
+    # Content-Type header will be set to `application/json`.
+    #: (Object) -> void
     def json(obj)
       require 'json' if !@json_loaded
 
