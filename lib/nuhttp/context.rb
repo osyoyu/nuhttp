@@ -64,12 +64,12 @@ module NuHttp
     attr_reader :method, :path, :query, :headers, :body
     attr_accessor :params
 
-    def initialize(method:, path:, query:, body:)
+    def initialize(method:, path:, query:, headers: {}, body:)
       @method = method
       @path = path
       @query = query
 
-      @headers = {}
+      @headers = headers
       @body = body
 
       @params = {}
