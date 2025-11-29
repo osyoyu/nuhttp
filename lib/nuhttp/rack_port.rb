@@ -13,7 +13,7 @@ module NuHttp
       req = env_to_request(env)
       res = @app.dispatch(req)
 
-      [res.status, {}, [res.body]]
+      [res.status, res.headers, [res.body]]
     end
 
     private def env_to_request(env)

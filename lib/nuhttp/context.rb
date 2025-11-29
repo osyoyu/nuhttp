@@ -20,6 +20,14 @@ module NuHttp
       @res
     end
 
+    def status(code)
+      res.status = code
+    end
+
+    def header(name, value)
+      res.headers[name] = value
+    end
+
     # TODO: take IO and allow streaming
     def body(str)
       res.body = str
