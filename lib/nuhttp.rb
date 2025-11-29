@@ -10,10 +10,13 @@ require_relative 'nuhttp/version'
 module NuHttp
   class Error < StandardError; end
 
+  # Entrypoint to define a NuHttp app.
+  # If a block is given, a NuHttp::Builder is yielded.
+  # If not, a bare builder will be returned.
   # @rbs &block: (Builder) -> void
   def self.app(&block)
-    return App.new(Router.new) if block == nil
     builder = Builder.new
+    return builder if block == nil
     block.call(builder)
     builder.build
   end

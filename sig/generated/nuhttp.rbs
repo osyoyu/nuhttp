@@ -4,6 +4,9 @@ module NuHttp
   class Error < StandardError
   end
 
+  # Entrypoint to define a NuHttp app.
+  # If a block is given, a NuHttp::Builder is yielded.
+  # If not, a bare builder will be returned.
   # @rbs &block: (Builder) -> void
   def self.app: () { (Builder) -> void } -> untyped
 end
