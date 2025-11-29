@@ -2,6 +2,7 @@
 # rbs_inline: enabled
 
 module NuHttp
+  # @rbs generic ParamsT
   class Context
     def initialize(req:, route:)
       @req = req
@@ -11,11 +12,11 @@ module NuHttp
       @json_loaded = false
     end
 
-    def req #: NuHttp::Request
+    def req #: Request[ParamsT]
       @req
     end
 
-    def res #: NuHttp::Response
+    def res #: Response
       @res
     end
 
@@ -60,9 +61,10 @@ module NuHttp
     end
   end
 
+  # @rbs generic ParamsT
   class Request
     attr_reader :method, :path, :query, :headers, :body
-    attr_accessor :params
+    attr_accessor :params #: ParamsT
 
     def initialize(method:, path:, query:, headers: {}, body:)
       @method = method

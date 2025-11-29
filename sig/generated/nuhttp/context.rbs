@@ -1,12 +1,13 @@
 # Generated from lib/nuhttp/context.rb with RBS::Inline
 
 module NuHttp
-  class Context
+  # @rbs generic ParamsT
+  class Context[ParamsT]
     def initialize: (req: untyped, route: untyped) -> untyped
 
-    def req: () -> NuHttp::Request
+    def req: () -> Request[ParamsT]
 
-    def res: () -> NuHttp::Response
+    def res: () -> Response
 
     # TODO: take IO and allow streaming
     def body: (untyped str) -> untyped
@@ -31,7 +32,8 @@ module NuHttp
     def json: (Object) -> void
   end
 
-  class Request
+  # @rbs generic ParamsT
+  class Request[ParamsT]
     attr_reader method: untyped
 
     attr_reader path: untyped
@@ -42,7 +44,7 @@ module NuHttp
 
     attr_reader body: untyped
 
-    attr_accessor params: untyped
+    attr_accessor params: ParamsT
 
     def initialize: (method: untyped, path: untyped, query: untyped, body: untyped) -> untyped
   end

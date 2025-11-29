@@ -6,12 +6,6 @@ module NuHttp
 
     def build: () -> untyped
 
-    # @rbs &block: (Context) -> void
-    def get: (untyped path) { (Context) -> void } -> untyped
-
-    # @rbs &block: (Context) -> void
-    def post: (untyped path) { (Context) -> void } -> untyped
-
     # : (String, NuHttp::App) -> void
     def mount: (String, NuHttp::App) -> void
   end

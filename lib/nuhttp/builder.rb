@@ -11,12 +11,16 @@ module NuHttp
       App.new(@router)
     end
 
-    # @rbs &block: (Context) -> void
+    # The `nuhttp-typegen` tool can be used to generated RBS type signatures
+    # tailored for each app.
+    # @rbs skip
     def get(path, &block)
       @router.register_route(:get, path, &block)
     end
 
-    # @rbs &block: (Context) -> void
+    # The `nuhttp-typegen` tool can be used to generated RBS type signatures
+    # tailored for each app.
+    # @rbs skip
     def post(path, &block)
       @router.register_route(:post, path, &block)
     end
