@@ -5,5 +5,7 @@ module NuHttp
     def initialize: (untyped app) -> untyped
 
     def call: (untyped env) -> untyped
+
+    private def env_to_request: (untyped env) -> untyped
   end
 end

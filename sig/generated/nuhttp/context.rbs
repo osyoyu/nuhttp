@@ -50,7 +50,7 @@ module NuHttp
 
     attr_accessor params: ParamsT
 
-    def initialize: (method: untyped, path: untyped, query: untyped, body: untyped) -> untyped
+    def initialize: (method: untyped, path: untyped, query: untyped, body: untyped, ?headers: untyped) -> untyped
   end
 
   class Response
