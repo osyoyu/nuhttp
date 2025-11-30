@@ -2,9 +2,12 @@
 
 A new (_nu_) and compact HTTP server library for Ruby.
 
+> [!WARNING]
+> I'm still playing around with very basic API design. Everything is subject to change without notice.
+
 ## Features
 
-- **Compact API.** Good for embedding in tools.
+- **Compact API.** Good for small-sized apps on the edge or micro-servers embedded in tools.
 - **Some typing support.** NuHttp API is (or should be) mostly typed. `params` also recieve types based on path patterns.
 - **Ractor mode.** Explore true concurrency!
 
@@ -88,6 +91,8 @@ nuhttp-typegen > sig/app.rbs
 
 Accept the challenge of making your app _Ractor shareable_! The HTTP server shipped with NuHttp spawns a new Ractor for each request, allowing requests to be served in a truly parallel manner.
 
+Note: Ractor mode requires `Ractor.shareable_proc`, a Ruby 4.0+ API ([Feature #21157](https://bugs.ruby-lang.org/issues/21557)).
+
 Define your app using`NuHttp.ractor_app` and start the server with `NuHttp::Server.new(app, ractor_mode: true).start`:
 
 ```ruby
@@ -104,9 +109,9 @@ end
 NuHttp::Server.new(App, ractor_mode: true).start
 ```
 
-Ractor mode brings many restrictions on what can be done in handlers. While you don't have to directly call `Ractor.new` in your code, you should read [ractor.md](https://docs.ruby-lang.org/en/master/language/ractor_md.html) in the Ruby docs for a good understanding of Ractors.
+Unfortunately, many restrictions are applied on what can be done in Ractor-mode handlers, which are run inside `Ractor.new { }`. You should read [ractor.md](https://docs.ruby-lang.org/en/master/language/ractor_md.html) in the Ruby docs for a good understanding of Ractors.
 
-Ractor mode requires `Ractor.shareable_proc`, a Ruby 4.0+ API ([Feature #21157](https://bugs.ruby-lang.org/issues/21557)).
+Most libraries can't be used in Ractor mode. If you need a MySQL client, [Trilogy](https://github.com/trilogy-libraries/trilogy) is [known to be Ractor-safe](https://github.com/trilogy-libraries/trilogy/issues/192).
 
 ## FAQ
 
