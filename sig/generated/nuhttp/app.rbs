@@ -5,8 +5,8 @@ module NuHttp
     def initialize: (untyped router) -> untyped
 
     # The entrypoint of the request.
-    # @rbs (NuHttp::Context) -> void
-    def dispatch: (NuHttp::Context) -> void
+    # @rbs (NuHttp::Context[untyped]) -> void
+    def dispatch: (NuHttp::Context[untyped]) -> void
 
     def routes: () -> untyped
   end

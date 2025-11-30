@@ -24,10 +24,10 @@ module NuHttp
 
     # @rbs (Symbol, String) -> void
     def register_route(method, pattern, &block)
-      @routes << Route.new(method:, pattern:, handler: block)
+     @routes << Route.new(method:, pattern:, handler: block)
     end
 
-    # @rbs (NuHttp::Request) -> [Route, Hash]
+    # @rbs (NuHttp::Request[untyped]) -> [Route, Hash[untyped, untyped]]
     def resolve(req)
       @routes.each do |route|
         # Turn the user supplied pattern into a regexp that captures named params.

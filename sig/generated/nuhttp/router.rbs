@@ -26,7 +26,7 @@ module NuHttp
     # @rbs (Symbol, String) -> void
     def register_route: (Symbol, String) -> void
 
-    # @rbs (NuHttp::Request) -> [Route, Hash]
-    def resolve: (NuHttp::Request) -> [ Route, Hash ]
+    # @rbs (NuHttp::Request[untyped]) -> [Route, Hash[untyped, untyped]]
+    def resolve: (NuHttp::Request[untyped]) -> [ Route, Hash[untyped, untyped] ]
   end
 end

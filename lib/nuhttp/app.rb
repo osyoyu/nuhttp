@@ -8,7 +8,7 @@ module NuHttp
     end
 
     # The entrypoint of the request.
-    # @rbs (NuHttp::Context) -> void
+    # @rbs (NuHttp::Context[untyped]) -> void
     def dispatch(req)
       route, params = @router.resolve(req)
       # Create a new Context
