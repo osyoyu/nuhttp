@@ -1,0 +1,17 @@
+# Generated from lib/nuhttp/server.rb with RBS::Inline
+
+module NuHttp
+  class Server
+    RFC9110_REASON_PHRASES: untyped
+
+    def initialize: (untyped app, ?bind: untyped, ?port: untyped, ?ractor_mode: untyped, ?call_make_shareable: untyped) -> untyped
+
+    def start: () -> untyped
+
+    def self.handle: (untyped app, untyped conn) -> untyped
+
+    module HttpParser
+      def self.parse_request: (untyped io) -> untyped
+    end
+  end
+end
