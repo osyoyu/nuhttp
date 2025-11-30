@@ -2,7 +2,7 @@
 
 module NuHttp
   class Builder
-    def initialize: () -> untyped
+    def initialize: (?ractor_compat: untyped) -> untyped
 
     def build: () -> untyped
 

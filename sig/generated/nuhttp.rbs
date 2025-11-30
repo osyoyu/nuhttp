@@ -9,4 +9,10 @@ module NuHttp
   # If not, a bare builder will be returned.
   # @rbs &block: (Builder) -> void
   def self.app: () { (Builder) -> void } -> untyped
+
+  # Entrypoint to define a Ractor-compatible NuHttp app.
+  # Note that many features will be restricted in Ractor mode.
+  # See Ruby documentation for details on Ractor limitations.
+  # @rbs &block: (Builder) -> void
+  def self.ractor_app: () { (Builder) -> void } -> untyped
 end

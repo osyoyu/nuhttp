@@ -3,26 +3,44 @@
 
 module NuHttp
   class Builder
-    def initialize
+    def initialize(ractor_compat: false)
       @router = Router.new
+      @ractor_compat = ractor_compat
     end
 
     def build
-      App.new(@router)
+      if @ractor_compat
+        @router.routes.freeze
+        Ractor.make_shareable @router
+        raise if !Ractor.shareable?(@router)
+      end
+      App.new(@router).tap do |app|
+        app.freeze if @ractor_compat
+      end
     end
 
     # The `nuhttp-typegen` tool can be used to generated RBS type signatures
     # tailored for each app.
     # @rbs skip
     def get(path, &block)
-      @router.register_route(:get, path, &block)
+      if @ractor_compat
+        shareable_block = Ractor.shareable_proc(&block)
+        @router.register_route(:get, path, &shareable_block)
+      else
+        @router.register_route(:get, path, &block)
+      end
     end
 
     # The `nuhttp-typegen` tool can be used to generated RBS type signatures
     # tailored for each app.
     # @rbs skip
     def post(path, &block)
-      @router.register_route(:post, path, &block)
+      if @ractor_compat
+        shareable_block = Ractor.shareable_proc(&block)
+        @router.register_route(:post, path, &shareable_block)
+      else
+        @router.register_route(:post, path, &block)
+      end
     end
 
     #: (String, NuHttp::App) -> void

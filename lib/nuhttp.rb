@@ -20,4 +20,17 @@ module NuHttp
     block.call(builder)
     builder.build
   end
+
+  # Entrypoint to define a Ractor-compatible NuHttp app.
+  # Note that many features will be restricted in Ractor mode.
+  # See Ruby documentation for details on Ractor limitations.
+  # @rbs &block: (Builder) -> void
+  def self.ractor_app(&block)
+      # Ractor-compatible apps must be frozen at the time of creation
+    raise ArgumentError if block == nil
+
+    builder = Builder.new(ractor_compat: true)
+    block.call(builder)
+    builder.build
+  end
 end

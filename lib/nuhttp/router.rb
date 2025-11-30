@@ -8,7 +8,7 @@ module NuHttp
     NOT_FOUND_ROUTE = Route.new(
       method: :internal,
       pattern: nil,
-      handler: proc do |c|
+      handler: Ractor.shareable_proc do |c|
         c.res.status = 404
         c.res.body = "Not Found\n"
       end
