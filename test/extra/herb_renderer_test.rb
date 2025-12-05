@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'nuhttp'
-require 'nuhttp/herb_renderer'
+require 'nuhttp/extra/herb_renderer'
 
 class HerbRendererTest < Minitest::Test
   def setup

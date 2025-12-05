@@ -21,10 +21,6 @@ module NuHttp
     # : (String) -> void
     def html: (String) -> void
 
-    # Render a template using the provided renderer and set as HTML response.
-    # : (String, ?Hash[Symbol, untyped]) -> void
-    def erb: (String, ?Hash[Symbol, untyped]) -> void
-
     # Set response to plain text `str`.
     # Content-Type header will be set to `text/plain; charset=utf-8`.
     # : (String) -> void

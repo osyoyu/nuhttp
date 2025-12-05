@@ -8,7 +8,6 @@ module NuHttp
       @req = req
       @res = Response.new
 
-      @herb_renderer_loaded = false
       @json_loaded = false
     end
 
@@ -39,15 +38,6 @@ module NuHttp
     def html(str)
       res.headers['Content-Type'] = 'text/html; charset=utf-8'
       res.body = str
-    end
-
-    # Render a template using the provided renderer and set as HTML response.
-    #: (String, ?Hash[Symbol, untyped]) -> void
-    def erb(template_path, locals = {})
-      require_relative './herb_renderer' if !@herb_renderer_loaded
-
-      rendered = HerbRenderer.new.render(template_path, locals)
-      html(rendered)
     end
 
     # Set response to plain text `str`.

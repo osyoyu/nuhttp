@@ -4,6 +4,15 @@
 require 'herb'
 
 module NuHttp
+  class Context
+    # Render a template using the provided renderer and set as HTML response.
+    #: (String, ?Hash[Symbol, untyped]) -> void
+    def erb(template_path, locals = {})
+      rendered = HerbRenderer.new.render(template_path, locals)
+      html(rendered)
+    end
+  end
+
   class HerbRenderer
     def render(template_path, locals = {})
       template_src = File.read(template_path)

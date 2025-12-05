@@ -1,0 +1,17 @@
+# Generated from lib/nuhttp/extra/herb_renderer.rb with RBS::Inline
+
+module NuHttp
+  class Context
+    # Render a template using the provided renderer and set as HTML response.
+    # : (String, ?Hash[Symbol, untyped]) -> void
+    def erb: (String, ?Hash[Symbol, untyped]) -> void
+  end
+
+  class HerbRenderer
+    def render: (untyped template_path, ?untyped locals) -> untyped
+  end
+
+  class EmptyBinding
+    def self.get_binding: () -> Binding
+  end
+end
